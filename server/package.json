@@ -1,0 +1,19 @@
+{
+  "name": "omega-pdf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "handlebars": "^4.0.5",
+    "lodash": "^4.14.2",
+    "phantom": "^2.1.14",
+    "serve-static": "^1.11.1"
+  }
+}
