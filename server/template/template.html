@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel='stylesheet' type='text/css' href='resources/css/bootstrap-no-print.css'>
+    <link rel='stylesheet' type='text/css' href='resources/css/font.css'>
+    <link rel='stylesheet' type='text/css' href='resources/css/template-style.css'>
+
+
+    <script type="text/javascript" src='bower_components/angular/angular.min.js'></script>
+    <script type="text/javascript" src='bower_components/lodash/dist/lodash.min.js'></script>
+    <script type="text/javascript" src='bower_components/jquery/dist/jquery.min.js'></script>
+
+    <script type="text/javascript" src="app/app.template.js"></script>
+    <script type="text/javascript" src="app/directives.template.js"></script>
+    <script type="text/javascript" src="app/services.template.js"></script>
+    <script type="text/javascript" src="app/controllers.template.js"></script>
+
+</head>
+<body ng-app="template" ng-controller="MainController as ctrl" media="print">
+    <div ng-repeat="report in reports" ng-class="{'report-container':true, 'page-break-after':!$last}">
+        <div class="page-container">
+            <ng-include src="'views/header1.html'"></ng-include>
+            <div class="report-body">
+                <h1 class="blue-title">Omega3 Index Report</h1>
+                <div class="row">
+                    <div class="col-xs-3">
+                        Name: {{report.name}}
+                        Age: {{report.age}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

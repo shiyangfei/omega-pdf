@@ -11,8 +11,6 @@ var express = require('./config/express'),
     port = 3000;
 
 app = express();
-app.set('port', port);
-
-var server = app.listen(app.get('port'), function() {
-    winston.log('Server listening on port: ' + server.address().port);
+app.listen(port, function() {
+    console.log('Server listening on port: ' + port);
 });

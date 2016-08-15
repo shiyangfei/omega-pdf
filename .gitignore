@@ -2,3 +2,4 @@
 .DSStore
 bower_components/
 node_modules/
+*.pdf

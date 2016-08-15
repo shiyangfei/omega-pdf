@@ -15,5 +15,7 @@ module.exports = function () {
     }));
     app.use(bodyParser.json());
     app.use(serveStatic('../public'));
+    
+    require('../app/route/UploadRoute.server.js')(app);
     return app;
 };

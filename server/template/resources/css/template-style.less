@@ -1,0 +1,29 @@
+@media only print {
+  @blue: #0196D8;
+  @white: #FFFFFF;
+
+  @page {
+    size: 21cm 29.7cm;
+    margin: 30mm 65mm 30mm 65mm; /* change the margins as you want them to be. */
+  }
+
+  .page-break-after {
+    page-break-after: always;
+  }
+
+  body {
+    font-family: sans-serif !important;
+    font-size: 12px;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .header-blue {
+    background-color: @blue !important;
+    color: #FFFFFF !important;
+    padding: 15px 30px;
+
+    -webkit-print-color-adjust: exact;
+  }
+}
+
+
