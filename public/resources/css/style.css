@@ -30,3 +30,15 @@ h1.title {
 .fileinput {
   width: 100%;
 }
+.download-link {
+  float: right;
+  line-height: 34px;
+}
+.msg-container {
+  max-height: 170px;
+  overflow: auto;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}

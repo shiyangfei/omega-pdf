@@ -2,11 +2,15 @@
  * Created by sfei on 8/10/2016.
  */
 'use strict';
-
-var _ = require('lodash'),
+var phantom = require('phantom'),
     winston = require('winston'),
-    phantom = require('phantom'),
-    phInstance;
+    fs = require('fs'),
+    async = require('async'),
+    _ = require('lodash'),
+    config = require('../../config/config'),
+    path = require('path'),
+    zip = require("node-native-zip"),
+    sg = require('sendgrid')(config.SENDGRID_API_KEY);
 
 exports.upload = function (req, res, next) {
     var data = req.body;
@@ -16,58 +20,244 @@ exports.upload = function (req, res, next) {
 
 function startProcess(data, res) {
     var page,
-        fileName,
-        filePath;
+        phInstance = null,
+        dirName = './file/{0}'.format(new Date().getTime()),
+        responseResult = null;
+
     phantom.create()
         .then(function (instance) {
+            // create phantom page
             winston.info(new Date + ': phantom created');
             phInstance = instance;
             return phInstance.createPage();
+
         })
         .then(function (pg) {
-            winston.info(new Date + ': page created');
+            // set page properties
+            winston.info('{0}: page created.'.format(new Date()));
             page = pg;
             return page.property('paperSize', {
-                format: 'A4',
+                format: 'Letter',
                 orientation: 'portrait',
                 margin: '0.5cm'
             });
         })
         .then(function () {
-            winston.info(new Date + ': page paper size set');
+            // open template file
             return page.open('template/template.html');
         })
         .then(function () {
-            //Put the CSV data into template
-            return page.evaluate(function (data) {
-                var $scope = angular.element(document.body).scope();
-                $scope.updateData(data);
-                $scope.$apply();
-            }, data);
+            return createPDFs(data, dirName, page)
         })
-        .then(function () {
-            winston.info(new Date + ': page content set');
-            fileName = new Date().getTime() + '.pdf';
-            filePath = '/file/' + fileName;
-            return page.render(filePath, {format: 'pdf'})
+        .then(function (results) {
+            return emailPDFs(results)
         })
-        .then(function () {
-            winston.info(new Date + ': page rendered');
+        .then(function (results) {
+            return createZipFile(results, dirName)
+        })
+        .then(function (results) {
+            responseResult = results;
             return page.close();
         })
         .then(function () {
-            winston.info(new Date + ': page closed');
             return phInstance.exit();
         })
         .then(function () {
-            winston.info(new Date + ': phantom exited');
-            res.download(filePath, fileName, function (err) {
-                    if (err) {
-                        winston.error(err)
-                    } else {
-                        winston.info(new Date + ': download completed');
-                    }
-                }
-            );
+            res.json({
+                success: true,
+                results: responseResult
+            });
+        })
+        .catch(function (err) {
+            res.json({
+                success: false,
+                error: err,
+                results: responseResult
+            });
         });
+}
+
+function createPDFs(data, dirName, page) {
+    return new Promise(function (resolve, reject) {
+        var asyncTasks = [];
+        _.forEach(data, function (item) {
+            asyncTasks.push(function (callback) {
+                createSinglePDF(item, page, dirName, callback);
+            });
+        });
+        async.series(
+            asyncTasks,
+            function (err, results) {
+                resolve(results);
+            }
+        );
+    })
+}
+
+function createSinglePDF(data, page, dirName, callback) {
+    var fileName,
+        filePath;
+    winston.info('{0}: starting process information: {1}'.format(new Date(), data.name));
+
+    var now = new Date();
+    fileName = 'omega-report_{0}_{1}.pdf'.format(data.id, now.getTime());
+    filePath = '{0}/{1}'.format(dirName, fileName);
+
+    page.evaluate(function (data) {
+        var $scope = angular.element(document.body).scope();
+        $scope.updateData(data);
+        $scope.$apply();
+    }, data)
+        .then(function () {
+            return page.render(filePath, {format: 'pdf'});
+        })
+        .then(function () {
+            winston.info('success to process {0}'.format(data.name));
+            return callback(null, {
+                success: true,
+                data: data,
+                filePath: filePath
+            });
+        })
+        .catch(function (error) {
+            winston.error('failed to process {0}'.format(data.name), error);
+            return callback(null, {
+                success: false,
+                error: 'PDF生成失败。',
+                data: data
+            });
+        });
+}
+
+function emailPDFs(results, res) {
+    return new Promise(function (resolve, reject) {
+        var sendingTasks = [],
+            errors = [],
+            successTasks = [];
+        _.forEach(results, function (pdfResult) {
+            if (pdfResult.success) {
+                sendingTasks.push(function (callback) {
+                    emailSinglePDF(pdfResult.filePath, pdfResult.data, callback);
+                })
+            } else {
+                errors.push({
+                    data: pdfResult.data,
+                    error: pdfResult.error
+                })
+            }
+        });
+
+        async.parallel(
+            sendingTasks,
+            function (err, results) {
+                _.forEach(results, function (sendingResult) {
+                    if (sendingResult.success == false) {
+                        errors.push({
+                            data: sendingResult.data,
+                            error: sendingResult.error
+                        });
+                    } else {
+                        successTasks.push(sendingResult)
+                    }
+                });
+                resolve({
+                    successTasks: successTasks,
+                    errorTasks: errors
+                })
+            }
+        );
+    })
+
+}
+
+function emailSinglePDF(filePath, data, callback) {
+    var request = sg.emptyRequest({
+        method: 'POST',
+        path: '/v3/mail/send',
+        body: {
+            personalizations: [
+                {
+                    to: [
+                        {
+                            email: data.email
+                        }
+                    ],
+
+                    cc: [{
+                        email: config.emailCC
+                    }],
+                    subject: 'Omega-3健康检测报告'
+                }
+            ],
+            from: {
+                email: config.emailFrom
+            },
+            reply_to: {
+                email: config.emailReplyTo,
+                name: config.emailReplyToName
+            },
+            content: [
+                {
+                    type: 'text/plain',
+                    value: '{0}, 请查阅您的体检报告。'.format(data.name)
+                }
+            ],
+            attachments: [
+                {
+                    content: base64_encode(filePath),
+                    type: 'application/pdf',
+                    filename: 'omega3-health-index.pdf'
+                }
+            ]
+        }
+    });
+    sg.API(request)
+        .then(function (response) {
+            winston.info(response.statusCode);
+            callback(null, {
+                success: true,
+                data: data,
+                filePath: filePath
+            });
+        })
+        .catch(function (error) {
+            winston.error(error.response.statusCode);
+            callback(null, {
+                success: false,
+                error: 'Email寄送失败',
+                data: data,
+                filePath: filePath
+            });
+        });
+}
+
+function createZipFile(results, dirName) {
+    return new Promise(function (resolve, reject) {
+        var archive = new zip(),
+            location = '{0}.zip'.format(dirName),
+            files = [];
+        _.forEach(results.successTasks, function (task) {
+            files.push({
+                    name: path.basename(task.filePath),
+                    path: task.filePath
+                }
+            )
+        });
+        archive.addFiles(files, function (err) {
+            var buff = archive.toBuffer();
+            if (err) {
+                reject(err);
+            }
+            fs.writeFile(location, buff, function () {
+                winston.info('zip completed');
+                results.zipPath = location;
+                resolve(results);
+            });
+        });
+    })
+}
+
+function base64_encode(file) {
+    var bitmap = fs.readFileSync(file);
+    return new Buffer(bitmap).toString('base64');
 }

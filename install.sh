@@ -3,5 +3,5 @@ bower install
 cd ..
 cd server
 npm install
-cd templates
+cd template
 bower install

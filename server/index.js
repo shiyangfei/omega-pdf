@@ -9,6 +9,7 @@ var express = require('./config/express'),
     winston = require('winston'),
     app,
     port = 3000;
+require('./config/override');
 
 app = express();
 app.listen(port, function() {

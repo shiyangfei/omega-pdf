@@ -2,66 +2,128 @@
  * Created by sfei on 8/10/2016.
  */
 var app = angular.module('omega');
-app.controller('MainController', function ($scope, MainService, toastr) {
+app.controller('MainController', function ($scope, MainService, toastr, blockUI) {
     var me = this;
     $scope.errorMsg = null;
+    $scope.successMsg = null;
     $scope.fileValid = false;
-    me.fileData = null;
+    $scope.fileData = null;
+    $scope.fileSelected = null;
 
-    me.onFileChange = function (event) {
-        var file = event.target.files[0],
-            data,
-            validationResult;
-        Papa.parse(file, {
-            header: true,
-            complete: function (results) {
-                validationResult = validateCSVFile(results);
-                if (validationResult.valid) {
-                    $scope.errorMsg = null;
+    $scope.$watch('fileSelected', function (newValue, oldValue) {
+        $scope.onFileChange(newValue)
+    });
+
+    $scope.onFileChange = function (file) {
+        var validationResult;
+        $scope.refreshFileData();
+        if (file && file.name.split('.')[1] == 'csv') {
+            Papa.parse(file, {
+                header: true,
+                complete: function (results) {
+                    validationResult = $scope.validateCSVFile(results);
+                    $scope.refreshFileData();
                     $scope.fileValid = true;
-                    me.fileData = results.data;
-                } else {
-                    $scope.errorMsg = validationResult.errors.join('<br>');
-                    $scope.fileValid = false;
+                    $scope.fileData = $scope.processData(results.data);
                 }
-            }
-        });
+            });
+        } else if (file) {
+            toastr.error('请选择一个有效的CSV文件。');
+        }
     };
 
-    me.onSubmitBtnClick = function () {
-        var fileName,
-            file;
-        if ($scope.fileValid && me.fileData) {
-            MainService.generateReport(me.fileData)
+    $scope.onFileRemoveClick = function () {
+        $scope.fileSelected = null;
+    };
+
+    $scope.onSubmitBtnClick = function () {
+        var errorMsg = null,
+            errorTasks,
+            successTasks,
+            errorData = null;
+        if ($scope.fileValid && $scope.fileData) {
+            blockUI.start();
+            MainService.generateReport($scope.fileData)
                 .then(function (res) {
-                    if (res) {
-                        fileName = getFileName(res);
-                        file = new Blob([res.data], {type: "application/pdf"});
-                        saveAs(file, fileName);
-                        $('.fileinput').fileinput('clear');
-                        toastr.success('File uploaded');
+                        blockUI.stop();
+                        var response = res.data;
+                        if (response.success) {
+                            if (response.results) {
+                                errorTasks = response.results.errorTasks;
+                                successTasks = response.results.successTasks;
+                                if (errorTasks && errorTasks.length > 0) {
+                                    var errorMsgs = [];
+                                    _.forEach(errorTasks, function (err) {
+                                        errorData = err.data || {};
+                                        errorMsgs.push('{0}-报告生成失败。原因: {1}'.format(err.data.id, err.error))
+                                    });
+                                    errorMsg = errorMsgs.join('<br>');
+                                    $scope.errorMsg = errorMsg;
+                                }
+                                if (successTasks && successTasks.length > 0) {
+                                    $scope.successMsg = '{0}份报告被生成并且寄出，ZIP文件将被下载以供留档。'.format(successTasks.length);
+                                }
+                                if (response.results.zipPath) {
+                                    $scope.downLoadZip(response.results.zipPath);
+                                }
+                            } else {
+                                errorMsg = '报告生成失败。';
+                                $scope.showErrorResult(errorMsg);
+                            }
+                        }
                     }
+                )
+                .catch(function (res) {
+                    blockUI.stop();
+                    errorMsg = '报告生成失败。';
+                    $scope.showErrorResult(errorMsg);
                 })
         } else {
-            toastr.error('Please select a valid CSV file');
+            toastr.error('请选择一个有效的CSV文件。');
         }
     };
 
-    function validateCSVFile(results) {
-        var me = this,
-            result = {
-                valid: true,
-                errors: []
-            };
-        //TODO: Add more validation rules
-        if (!results.meta || !results.meta.fields) {
-            result.valid = false;
-            result.errors.push('Missing column headers')
-        }
-        return result;
-    }
+    $scope.downLoadZip = function (path) {
+        var fileName;
+        MainService.downloadReport(path)
+            .then(function (res) {
+                if (res) {
+                    fileName = $scope.getFileName(res);
+                    file = new Blob([res.data], {type: "application/zip"});
+                    saveAs(file, fileName);
+                }
+            })
+    };
 
-    function getFileName(res) {
+    $scope.refreshFileData = function () {
+        $scope.errorMsg = null;
+        $scope.successMsg = null;
+        $scope.fileValid = false;
+        $scope.fileData = null;
+    };
+
+    $scope.processData = function (data) {
+        _.forEach(data, function (item) {
+            item.omega3_index = parseFloat(item.omega3_index);
+            item.trans_fat_index = parseFloat(item.trans_fat_index);
+        });
+        return data;
+    };
+
+    $scope.showErrorResult = function (error) {
+        toastr.error('报告生成出现错误。');
+        $scope.errorMsg = error;
+    };
+
+    $scope.validateCSVFile = function (results) {
+        //TODO: add more validation rules using regex
+        return {
+            valid: true,
+            errors: []
+        };
+    };
+
+    $scope.getFileName = function (res) {
         var fileName;
         try {
             fileName = res.headers()['content-disposition'].split('filename=')[1].replace('"', '').replace('"', '');
@@ -70,5 +132,5 @@ app.controller('MainController', function ($scope, MainService, toastr) {
             fileName = new Date().getTime() + '.pdf'
         }
         return fileName;
-    }
+    };
 });

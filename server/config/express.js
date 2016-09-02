@@ -13,9 +13,9 @@ module.exports = function () {
     app.use(bodyParser.urlencoded({
         extended: true
     }));
-    app.use(bodyParser.json());
+    app.use(bodyParser.json({limit: '50mb'}));
     app.use(serveStatic('../public'));
     
-    require('../app/route/UploadRoute.server.js')(app);
+    require('../app/route/route.server.js')(app);
     return app;
 };

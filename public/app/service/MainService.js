@@ -8,8 +8,18 @@ app.service('MainService', function ($http) {
         return $http({
             url: 'api/upload',
             method: 'POST',
-            data: data,
-            responseType: 'blob'
+            data: data
         });
     };
+    
+    me.downloadReport = function (path) {
+        return $http({
+            url: 'api/download',
+            method: 'POST',
+            data: {
+                path: path
+            },
+            responseType: 'blob'
+        });
+    }
 });
