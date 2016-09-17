@@ -16,13 +16,13 @@ var phantom = require('phantom'),
 var fieldsToTrans = {
     'omega3_index': true,
     'trans_fat_index': true,
-    'omega3_fatty_acids': true,
-    'omega6_fatty_acids': true,
-    'cis_fatty_acids': true,
-    'saturated_fatty_acids': true,
-    'trans_fatty_acids': true,
-    'omega6_omega3': true,
-    'AA_EPA': true
+    'total_omega3': true,
+    'total_omega6': true,
+    'total_monounsaturated': true,
+    'total_saturated': true,
+    'total_trans': true,
+    'n6_n3': 'string',
+    'aa_epa': 'string'
 };
 
 exports.upload = function (req, res, next) {
@@ -184,6 +184,14 @@ function emailPDFs(results, res) {
 }
 
 function emailSinglePDF(filePath, data, callback) {
+    if (!data.email || data.email == '') {
+        callback(null, {
+            success: true,
+            data: data,
+            filePath: filePath
+        });
+        return;
+    }
     var request = sg.emptyRequest({
         method: 'POST',
         path: '/v3/mail/send',
@@ -293,7 +301,7 @@ function processRawData(raw) {
     // transfer necessary float numbers back to percentage string
     _.forEach(raw, function (item) {
         _.forEach(item, function (value, key) {
-            if (fieldsToTrans[key]) {
+            if (fieldsToTrans[key] && fieldsToTrans[key] != 'string') {
                 item[key] = value + '%';
             }
         });
@@ -307,7 +315,11 @@ function getSingleRowPercentile(item) {
         i;
     _.forEach(item, function (value, key) {
         if (fieldsToTrans[key]) {
-            item[key + '_ref_range'] = '{0}% - {1}%'.format(percentile[0][key], percentile[len - 1][key]);
+            if (fieldsToTrans[key] != 'string') {
+                item[key + '_ref_range'] = '{0}% - {1}%'.format(percentile[0][key], percentile[len - 1][key]);
+            } else {
+                item[key + '_ref_range'] = '{0} - {1}'.format(percentile[0][key], percentile[len - 1][key]);
+            }
             for (i = 0; i < len; i++) {
                 singlePercentile = percentile[i];
                 nextPercentile = percentile[i + 1];
