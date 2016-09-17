@@ -10,10 +10,24 @@ var phantom = require('phantom'),
     config = require('../../config/config'),
     path = require('path'),
     zip = require("node-native-zip"),
-    sg = require('sendgrid')(config.SENDGRID_API_KEY);
+    sg = require('sendgrid')(config.SENDGRID_API_KEY),
+    percentile = require('../data/percentile').percentile;
+
+var fieldsToTrans = {
+    'omega3_index': true,
+    'trans_fat_index': true,
+    'omega3_fatty_acids': true,
+    'omega6_fatty_acids': true,
+    'cis_fatty_acids': true,
+    'saturated_fatty_acids': true,
+    'trans_fatty_acids': true,
+    'omega6_omega3': true,
+    'AA_EPA': true
+};
 
 exports.upload = function (req, res, next) {
     var data = req.body;
+    processRawData(data);
     winston.info(data);
     startProcess(data, res);
 };
@@ -30,7 +44,6 @@ function startProcess(data, res) {
             winston.info(new Date + ': phantom created');
             phInstance = instance;
             return phInstance.createPage();
-
         })
         .then(function (pg) {
             // set page properties
@@ -260,4 +273,62 @@ function createZipFile(results, dirName) {
 function base64_encode(file) {
     var bitmap = fs.readFileSync(file);
     return new Buffer(bitmap).toString('base64');
+}
+
+function processRawData(raw) {
+    // transfer necessary percentage strings to float numbers
+    _.forEach(raw, function (item) {
+        _.forEach(item, function (value, key) {
+            if (fieldsToTrans[key]) {
+                item[key] = parseFloat(value);
+            }
+        });
+    });
+
+    // calculate percentile ranks and reference ranges
+    _.forEach(raw, function (item) {
+        getSingleRowPercentile(item)
+    });
+
+    // transfer necessary float numbers back to percentage string
+    _.forEach(raw, function (item) {
+        _.forEach(item, function (value, key) {
+            if (fieldsToTrans[key]) {
+                item[key] = value + '%';
+            }
+        });
+    });
+}
+
+function getSingleRowPercentile(item) {
+    var len = percentile.length,
+        singlePercentile,
+        nextPercentile,
+        i;
+    _.forEach(item, function (value, key) {
+        if (fieldsToTrans[key]) {
+            item[key + '_ref_range'] = '{0}% - {1}%'.format(percentile[0][key], percentile[len - 1][key]);
+            for (i = 0; i < len; i++) {
+                singlePercentile = percentile[i];
+                nextPercentile = percentile[i + 1];
+                if (!nextPercentile) {
+                    item[key + '_rank'] = singlePercentile.percentile + '%';
+                    break;
+                }
+                if (i == 0 && singlePercentile[key] >= value) {
+                    item[key + '_rank'] = singlePercentile.percentile + '%';
+                    break;
+                }
+                if (singlePercentile[key] == value) {
+                    item[key + '_rank'] = singlePercentile.percentile + '%';
+                    break;
+                }
+
+                if (singlePercentile[key] < value && nextPercentile[key] > value) {
+                    item[key + '_rank'] = singlePercentile.percentile + '%';
+                    break;
+                }
+            }
+        }
+    })
 }

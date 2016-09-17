@@ -5,25 +5,29 @@ var app = angular.module('template');
 app.service('MainService', function ($http) {
     var me = this;
 
-    me.getOmega3IndexSummaryText = function (index) {
+    me.getOmega3IndexSummaryText = function (indexText) {
+        var index = parseFloat(indexText);
         if (index > 8) {return me.omega3SummaryText.high;}
         if (index <= 8 && index >= 4) {return me.omega3SummaryText.medium;}
         if (index < 4) {return me.omega3SummaryText.low;}
     };
 
-    me.getOmega3IndexDetailText = function (index) {
+    me.getOmega3IndexDetailText = function (indexText) {
+        var index = parseFloat(indexText);
         if (index > 8) {return me.omega3DetailText.high;}
         if (index <= 8 && index >= 4) {return me.omega3DetailText.medium;}
         if (index < 4) {return me.omega3DetailText.low;}
     };
 
-    me.getTransFatIndexSummaryText = function (index) {
+    me.getTransFatIndexSummaryText = function (indexText) {
+        var index = parseFloat(indexText);
         if (index > 1.65) {return me.transFatSummaryText.high;}
         if (index <= 1.65 && index >= 1) {return me.transFatSummaryText.medium;}
         if (index < 1) {return me.transFatSummaryText.low;}
     };
 
-    me.getTransFatIndexDetailText = function (index) {
+    me.getTransFatIndexDetailText = function (indexText) {
+        var index = parseFloat(indexText);
         if (index > 1.65) {return me.transFatDetailText.high;}
         if (index <= 1.65 && index >= 1) {return me.transFatDetailText.medium;}
         if (index < 1) {return me.transFatDetailText.low;}

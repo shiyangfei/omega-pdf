@@ -24,7 +24,7 @@ app.controller('MainController', function ($scope, MainService, toastr, blockUI)
                     validationResult = $scope.validateCSVFile(results);
                     $scope.refreshFileData();
                     $scope.fileValid = true;
-                    $scope.fileData = $scope.processData(results.data);
+                    $scope.fileData = results.data;
                 }
             });
         } else if (file) {
@@ -100,14 +100,6 @@ app.controller('MainController', function ($scope, MainService, toastr, blockUI)
         $scope.successMsg = null;
         $scope.fileValid = false;
         $scope.fileData = null;
-    };
-
-    $scope.processData = function (data) {
-        _.forEach(data, function (item) {
-            item.omega3_index = parseFloat(item.omega3_index);
-            item.trans_fat_index = parseFloat(item.trans_fat_index);
-        });
-        return data;
     };
 
     $scope.showErrorResult = function (error) {
