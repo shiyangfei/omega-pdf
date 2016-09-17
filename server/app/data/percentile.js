@@ -9,7 +9,7 @@ exports.percentile = [
         "n6_n3": 2,
         "aa_epa": 1.1,
         "total_saturated": 30.5,
-        "cis_fatty_acids": 16.1,
+        "total_monounsaturated": 16.1,
         "total_omega6": 26.2,
         "total_omega3": 2.7,
         "total_trans": 0.4
@@ -20,7 +20,7 @@ exports.percentile = [
         "n6_n3": 2.3,
         "aa_epa": 1.4,
         "total_saturated": 31.1,
-        "cis_fatty_acids": 16.6,
+        "total_monounsaturated": 16.6,
         "total_omega6": 27.4,
         "total_omega3": 2.9,
         "total_trans": 0.4
@@ -31,7 +31,7 @@ exports.percentile = [
         "n6_n3": 2.5,
         "aa_epa": 1.6,
         "total_saturated": 31.5,
-        "cis_fatty_acids": 16.9,
+        "total_monounsaturated": 16.9,
         "total_omega6": 28.4,
         "total_omega3": 3,
         "total_trans": 0.5
@@ -42,7 +42,7 @@ exports.percentile = [
         "n6_n3": 2.7,
         "aa_epa": 1.8,
         "total_saturated": 31.8,
-        "cis_fatty_acids": 17.1,
+        "total_monounsaturated": 17.1,
         "total_omega6": 29,
         "total_omega3": 3.1,
         "total_trans": 0.5
@@ -53,7 +53,7 @@ exports.percentile = [
         "n6_n3": 2.8,
         "aa_epa": 2,
         "total_saturated": 32,
-        "cis_fatty_acids": 17.4,
+        "total_monounsaturated": 17.4,
         "total_omega6": 29.5,
         "total_omega3": 3.2,
         "total_trans": 0.5
@@ -64,7 +64,7 @@ exports.percentile = [
         "n6_n3": 3,
         "aa_epa": 2.2,
         "total_saturated": 32.1,
-        "cis_fatty_acids": 17.5,
+        "total_monounsaturated": 17.5,
         "total_omega6": 30,
         "total_omega3": 3.3,
         "total_trans": 0.5
@@ -75,7 +75,7 @@ exports.percentile = [
         "n6_n3": 3.1,
         "aa_epa": 2.5,
         "total_saturated": 32.3,
-        "cis_fatty_acids": 17.7,
+        "total_monounsaturated": 17.7,
         "total_omega6": 30.3,
         "total_omega3": 3.4,
         "total_trans": 0.6
@@ -86,7 +86,7 @@ exports.percentile = [
         "n6_n3": 3.2,
         "aa_epa": 2.6,
         "total_saturated": 32.4,
-        "cis_fatty_acids": 17.8,
+        "total_monounsaturated": 17.8,
         "total_omega6": 30.6,
         "total_omega3": 3.4,
         "total_trans": 0.6
@@ -97,7 +97,7 @@ exports.percentile = [
         "n6_n3": 3.4,
         "aa_epa": 2.8,
         "total_saturated": 32.6,
-        "cis_fatty_acids": 18,
+        "total_monounsaturated": 18,
         "total_omega6": 31,
         "total_omega3": 3.5,
         "total_trans": 0.6
@@ -108,7 +108,7 @@ exports.percentile = [
         "n6_n3": 3.5,
         "aa_epa": 2.9,
         "total_saturated": 32.7,
-        "cis_fatty_acids": 18.1,
+        "total_monounsaturated": 18.1,
         "total_omega6": 31.2,
         "total_omega3": 3.5,
         "total_trans": 0.6
@@ -119,7 +119,7 @@ exports.percentile = [
         "n6_n3": 3.6,
         "aa_epa": 3.1,
         "total_saturated": 32.8,
-        "cis_fatty_acids": 18.2,
+        "total_monounsaturated": 18.2,
         "total_omega6": 31.5,
         "total_omega3": 3.6,
         "total_trans": 0.6
@@ -130,7 +130,7 @@ exports.percentile = [
         "n6_n3": 3.7,
         "aa_epa": 3.3,
         "total_saturated": 32.9,
-        "cis_fatty_acids": 18.3,
+        "total_monounsaturated": 18.3,
         "total_omega6": 31.7,
         "total_omega3": 3.6,
         "total_trans": 0.6
@@ -141,7 +141,7 @@ exports.percentile = [
         "n6_n3": 3.8,
         "aa_epa": 3.5,
         "total_saturated": 33,
-        "cis_fatty_acids": 18.4,
+        "total_monounsaturated": 18.4,
         "total_omega6": 32,
         "total_omega3": 3.7,
         "total_trans": 0.7
@@ -152,7 +152,7 @@ exports.percentile = [
         "n6_n3": 3.9,
         "aa_epa": 3.7,
         "total_saturated": 33.1,
-        "cis_fatty_acids": 18.5,
+        "total_monounsaturated": 18.5,
         "total_omega6": 32.2,
         "total_omega3": 3.7,
         "total_trans": 0.7
@@ -163,7 +163,7 @@ exports.percentile = [
         "n6_n3": 4,
         "aa_epa": 3.9,
         "total_saturated": 33.1,
-        "cis_fatty_acids": 18.6,
+        "total_monounsaturated": 18.6,
         "total_omega6": 32.4,
         "total_omega3": 3.7,
         "total_trans": 0.7
@@ -174,7 +174,7 @@ exports.percentile = [
         "n6_n3": 4.1,
         "aa_epa": 4.1,
         "total_saturated": 33.2,
-        "cis_fatty_acids": 18.7,
+        "total_monounsaturated": 18.7,
         "total_omega6": 32.5,
         "total_omega3": 3.8,
         "total_trans": 0.7
@@ -185,7 +185,7 @@ exports.percentile = [
         "n6_n3": 4.2,
         "aa_epa": 4.3,
         "total_saturated": 33.3,
-        "cis_fatty_acids": 18.8,
+        "total_monounsaturated": 18.8,
         "total_omega6": 32.7,
         "total_omega3": 3.8,
         "total_trans": 0.7
@@ -196,7 +196,7 @@ exports.percentile = [
         "n6_n3": 4.3,
         "aa_epa": 4.6,
         "total_saturated": 33.4,
-        "cis_fatty_acids": 18.9,
+        "total_monounsaturated": 18.9,
         "total_omega6": 32.9,
         "total_omega3": 3.9,
         "total_trans": 0.7
@@ -207,7 +207,7 @@ exports.percentile = [
         "n6_n3": 4.4,
         "aa_epa": 4.8,
         "total_saturated": 33.4,
-        "cis_fatty_acids": 18.9,
+        "total_monounsaturated": 18.9,
         "total_omega6": 33,
         "total_omega3": 3.9,
         "total_trans": 0.7
@@ -218,7 +218,7 @@ exports.percentile = [
         "n6_n3": 4.4,
         "aa_epa": 5,
         "total_saturated": 33.5,
-        "cis_fatty_acids": 19,
+        "total_monounsaturated": 19,
         "total_omega6": 33.2,
         "total_omega3": 4,
         "total_trans": 0.7
@@ -229,7 +229,7 @@ exports.percentile = [
         "n6_n3": 4.5,
         "aa_epa": 5.3,
         "total_saturated": 33.6,
-        "cis_fatty_acids": 19.1,
+        "total_monounsaturated": 19.1,
         "total_omega6": 33.4,
         "total_omega3": 4,
         "total_trans": 0.7
@@ -240,7 +240,7 @@ exports.percentile = [
         "n6_n3": 4.6,
         "aa_epa": 5.5,
         "total_saturated": 33.6,
-        "cis_fatty_acids": 19.2,
+        "total_monounsaturated": 19.2,
         "total_omega6": 33.5,
         "total_omega3": 4,
         "total_trans": 0.7
@@ -251,7 +251,7 @@ exports.percentile = [
         "n6_n3": 4.7,
         "aa_epa": 5.7,
         "total_saturated": 33.7,
-        "cis_fatty_acids": 19.2,
+        "total_monounsaturated": 19.2,
         "total_omega6": 33.7,
         "total_omega3": 4.1,
         "total_trans": 0.8
@@ -262,7 +262,7 @@ exports.percentile = [
         "n6_n3": 4.8,
         "aa_epa": 6,
         "total_saturated": 33.7,
-        "cis_fatty_acids": 19.3,
+        "total_monounsaturated": 19.3,
         "total_omega6": 33.8,
         "total_omega3": 4.1,
         "total_trans": 0.8
@@ -273,7 +273,7 @@ exports.percentile = [
         "n6_n3": 4.9,
         "aa_epa": 6.2,
         "total_saturated": 33.8,
-        "cis_fatty_acids": 19.4,
+        "total_monounsaturated": 19.4,
         "total_omega6": 34,
         "total_omega3": 4.2,
         "total_trans": 0.8
@@ -284,7 +284,7 @@ exports.percentile = [
         "n6_n3": 5,
         "aa_epa": 6.5,
         "total_saturated": 33.9,
-        "cis_fatty_acids": 19.5,
+        "total_monounsaturated": 19.5,
         "total_omega6": 34.1,
         "total_omega3": 4.2,
         "total_trans": 0.8
@@ -295,7 +295,7 @@ exports.percentile = [
         "n6_n3": 5.1,
         "aa_epa": 6.8,
         "total_saturated": 33.9,
-        "cis_fatty_acids": 19.5,
+        "total_monounsaturated": 19.5,
         "total_omega6": 34.2,
         "total_omega3": 4.2,
         "total_trans": 0.8
@@ -306,7 +306,7 @@ exports.percentile = [
         "n6_n3": 5.2,
         "aa_epa": 7.1,
         "total_saturated": 34,
-        "cis_fatty_acids": 19.6,
+        "total_monounsaturated": 19.6,
         "total_omega6": 34.4,
         "total_omega3": 4.3,
         "total_trans": 0.8
@@ -317,7 +317,7 @@ exports.percentile = [
         "n6_n3": 5.2,
         "aa_epa": 7.3,
         "total_saturated": 34,
-        "cis_fatty_acids": 19.7,
+        "total_monounsaturated": 19.7,
         "total_omega6": 34.5,
         "total_omega3": 4.3,
         "total_trans": 0.8
@@ -328,7 +328,7 @@ exports.percentile = [
         "n6_n3": 5.3,
         "aa_epa": 7.6,
         "total_saturated": 34.1,
-        "cis_fatty_acids": 19.8,
+        "total_monounsaturated": 19.8,
         "total_omega6": 34.6,
         "total_omega3": 4.4,
         "total_trans": 0.8
@@ -339,7 +339,7 @@ exports.percentile = [
         "n6_n3": 5.4,
         "aa_epa": 7.9,
         "total_saturated": 34.1,
-        "cis_fatty_acids": 19.8,
+        "total_monounsaturated": 19.8,
         "total_omega6": 34.8,
         "total_omega3": 4.4,
         "total_trans": 0.8
@@ -350,7 +350,7 @@ exports.percentile = [
         "n6_n3": 5.5,
         "aa_epa": 8.2,
         "total_saturated": 34.2,
-        "cis_fatty_acids": 19.9,
+        "total_monounsaturated": 19.9,
         "total_omega6": 34.9,
         "total_omega3": 4.5,
         "total_trans": 0.8
@@ -361,7 +361,7 @@ exports.percentile = [
         "n6_n3": 5.5,
         "aa_epa": 8.5,
         "total_saturated": 34.2,
-        "cis_fatty_acids": 20,
+        "total_monounsaturated": 20,
         "total_omega6": 35,
         "total_omega3": 4.5,
         "total_trans": 0.8
@@ -372,7 +372,7 @@ exports.percentile = [
         "n6_n3": 5.6,
         "aa_epa": 8.8,
         "total_saturated": 34.3,
-        "cis_fatty_acids": 20,
+        "total_monounsaturated": 20,
         "total_omega6": 35.1,
         "total_omega3": 4.5,
         "total_trans": 0.8
@@ -383,7 +383,7 @@ exports.percentile = [
         "n6_n3": 5.7,
         "aa_epa": 9,
         "total_saturated": 34.3,
-        "cis_fatty_acids": 20.1,
+        "total_monounsaturated": 20.1,
         "total_omega6": 35.2,
         "total_omega3": 4.6,
         "total_trans": 0.8
@@ -394,7 +394,7 @@ exports.percentile = [
         "n6_n3": 5.8,
         "aa_epa": 9.3,
         "total_saturated": 34.4,
-        "cis_fatty_acids": 20.2,
+        "total_monounsaturated": 20.2,
         "total_omega6": 35.3,
         "total_omega3": 4.6,
         "total_trans": 0.9
@@ -405,7 +405,7 @@ exports.percentile = [
         "n6_n3": 5.9,
         "aa_epa": 9.6,
         "total_saturated": 34.4,
-        "cis_fatty_acids": 20.2,
+        "total_monounsaturated": 20.2,
         "total_omega6": 35.4,
         "total_omega3": 4.7,
         "total_trans": 0.9
@@ -416,7 +416,7 @@ exports.percentile = [
         "n6_n3": 6,
         "aa_epa": 9.9,
         "total_saturated": 34.5,
-        "cis_fatty_acids": 20.3,
+        "total_monounsaturated": 20.3,
         "total_omega6": 35.5,
         "total_omega3": 4.7,
         "total_trans": 0.9
@@ -427,7 +427,7 @@ exports.percentile = [
         "n6_n3": 6.1,
         "aa_epa": 10.2,
         "total_saturated": 34.5,
-        "cis_fatty_acids": 20.3,
+        "total_monounsaturated": 20.3,
         "total_omega6": 35.6,
         "total_omega3": 4.8,
         "total_trans": 0.9
@@ -438,7 +438,7 @@ exports.percentile = [
         "n6_n3": 6.1,
         "aa_epa": 10.6,
         "total_saturated": 34.6,
-        "cis_fatty_acids": 20.4,
+        "total_monounsaturated": 20.4,
         "total_omega6": 35.7,
         "total_omega3": 4.8,
         "total_trans": 0.9
@@ -449,7 +449,7 @@ exports.percentile = [
         "n6_n3": 6.2,
         "aa_epa": 10.9,
         "total_saturated": 34.6,
-        "cis_fatty_acids": 20.5,
+        "total_monounsaturated": 20.5,
         "total_omega6": 35.8,
         "total_omega3": 4.8,
         "total_trans": 0.9
@@ -460,7 +460,7 @@ exports.percentile = [
         "n6_n3": 6.3,
         "aa_epa": 11.1,
         "total_saturated": 34.7,
-        "cis_fatty_acids": 20.6,
+        "total_monounsaturated": 20.6,
         "total_omega6": 36,
         "total_omega3": 4.9,
         "total_trans": 0.9
@@ -471,7 +471,7 @@ exports.percentile = [
         "n6_n3": 6.4,
         "aa_epa": 11.5,
         "total_saturated": 34.7,
-        "cis_fatty_acids": 20.6,
+        "total_monounsaturated": 20.6,
         "total_omega6": 36.1,
         "total_omega3": 4.9,
         "total_trans": 0.9
@@ -482,7 +482,7 @@ exports.percentile = [
         "n6_n3": 6.5,
         "aa_epa": 11.8,
         "total_saturated": 34.7,
-        "cis_fatty_acids": 20.7,
+        "total_monounsaturated": 20.7,
         "total_omega6": 36.2,
         "total_omega3": 5,
         "total_trans": 0.9
@@ -493,7 +493,7 @@ exports.percentile = [
         "n6_n3": 6.5,
         "aa_epa": 12.1,
         "total_saturated": 34.8,
-        "cis_fatty_acids": 20.8,
+        "total_monounsaturated": 20.8,
         "total_omega6": 36.3,
         "total_omega3": 5,
         "total_trans": 0.9
@@ -504,7 +504,7 @@ exports.percentile = [
         "n6_n3": 6.6,
         "aa_epa": 12.4,
         "total_saturated": 34.8,
-        "cis_fatty_acids": 20.8,
+        "total_monounsaturated": 20.8,
         "total_omega6": 36.4,
         "total_omega3": 5.1,
         "total_trans": 0.9
@@ -515,7 +515,7 @@ exports.percentile = [
         "n6_n3": 6.7,
         "aa_epa": 12.7,
         "total_saturated": 34.9,
-        "cis_fatty_acids": 20.9,
+        "total_monounsaturated": 20.9,
         "total_omega6": 36.5,
         "total_omega3": 5.1,
         "total_trans": 0.9
@@ -526,7 +526,7 @@ exports.percentile = [
         "n6_n3": 6.8,
         "aa_epa": 13.1,
         "total_saturated": 34.9,
-        "cis_fatty_acids": 21,
+        "total_monounsaturated": 21,
         "total_omega6": 36.6,
         "total_omega3": 5.2,
         "total_trans": 0.9
@@ -537,7 +537,7 @@ exports.percentile = [
         "n6_n3": 6.9,
         "aa_epa": 13.5,
         "total_saturated": 35,
-        "cis_fatty_acids": 21,
+        "total_monounsaturated": 21,
         "total_omega6": 36.7,
         "total_omega3": 5.3,
         "total_trans": 0.9
@@ -548,7 +548,7 @@ exports.percentile = [
         "n6_n3": 7,
         "aa_epa": 13.8,
         "total_saturated": 35,
-        "cis_fatty_acids": 21.1,
+        "total_monounsaturated": 21.1,
         "total_omega6": 36.8,
         "total_omega3": 5.3,
         "total_trans": 1
@@ -559,7 +559,7 @@ exports.percentile = [
         "n6_n3": 7,
         "aa_epa": 14.1,
         "total_saturated": 35.1,
-        "cis_fatty_acids": 21.1,
+        "total_monounsaturated": 21.1,
         "total_omega6": 36.9,
         "total_omega3": 5.4,
         "total_trans": 1
@@ -570,7 +570,7 @@ exports.percentile = [
         "n6_n3": 7.1,
         "aa_epa": 14.4,
         "total_saturated": 35.1,
-        "cis_fatty_acids": 21.2,
+        "total_monounsaturated": 21.2,
         "total_omega6": 37,
         "total_omega3": 5.4,
         "total_trans": 1
@@ -581,7 +581,7 @@ exports.percentile = [
         "n6_n3": 7.2,
         "aa_epa": 14.8,
         "total_saturated": 35.2,
-        "cis_fatty_acids": 21.3,
+        "total_monounsaturated": 21.3,
         "total_omega6": 37.1,
         "total_omega3": 5.5,
         "total_trans": 1
@@ -592,7 +592,7 @@ exports.percentile = [
         "n6_n3": 7.3,
         "aa_epa": 15.1,
         "total_saturated": 35.2,
-        "cis_fatty_acids": 21.4,
+        "total_monounsaturated": 21.4,
         "total_omega6": 37.2,
         "total_omega3": 5.5,
         "total_trans": 1
@@ -603,7 +603,7 @@ exports.percentile = [
         "n6_n3": 7.4,
         "aa_epa": 15.5,
         "total_saturated": 35.3,
-        "cis_fatty_acids": 21.4,
+        "total_monounsaturated": 21.4,
         "total_omega6": 37.3,
         "total_omega3": 5.6,
         "total_trans": 1
@@ -614,7 +614,7 @@ exports.percentile = [
         "n6_n3": 7.5,
         "aa_epa": 15.9,
         "total_saturated": 35.3,
-        "cis_fatty_acids": 21.5,
+        "total_monounsaturated": 21.5,
         "total_omega6": 37.4,
         "total_omega3": 5.7,
         "total_trans": 1
@@ -625,7 +625,7 @@ exports.percentile = [
         "n6_n3": 7.6,
         "aa_epa": 16.2,
         "total_saturated": 35.3,
-        "cis_fatty_acids": 21.6,
+        "total_monounsaturated": 21.6,
         "total_omega6": 37.5,
         "total_omega3": 5.7,
         "total_trans": 1
@@ -636,7 +636,7 @@ exports.percentile = [
         "n6_n3": 7.6,
         "aa_epa": 16.5,
         "total_saturated": 35.4,
-        "cis_fatty_acids": 21.6,
+        "total_monounsaturated": 21.6,
         "total_omega6": 37.6,
         "total_omega3": 5.8,
         "total_trans": 1
@@ -647,7 +647,7 @@ exports.percentile = [
         "n6_n3": 7.7,
         "aa_epa": 16.8,
         "total_saturated": 35.4,
-        "cis_fatty_acids": 21.7,
+        "total_monounsaturated": 21.7,
         "total_omega6": 37.7,
         "total_omega3": 5.9,
         "total_trans": 1
@@ -658,7 +658,7 @@ exports.percentile = [
         "n6_n3": 7.8,
         "aa_epa": 17.2,
         "total_saturated": 35.5,
-        "cis_fatty_acids": 21.8,
+        "total_monounsaturated": 21.8,
         "total_omega6": 37.8,
         "total_omega3": 5.9,
         "total_trans": 1
@@ -669,7 +669,7 @@ exports.percentile = [
         "n6_n3": 7.9,
         "aa_epa": 17.6,
         "total_saturated": 35.5,
-        "cis_fatty_acids": 21.8,
+        "total_monounsaturated": 21.8,
         "total_omega6": 37.9,
         "total_omega3": 6,
         "total_trans": 1
@@ -680,7 +680,7 @@ exports.percentile = [
         "n6_n3": 8,
         "aa_epa": 18,
         "total_saturated": 35.6,
-        "cis_fatty_acids": 21.9,
+        "total_monounsaturated": 21.9,
         "total_omega6": 38,
         "total_omega3": 6.1,
         "total_trans": 1
@@ -691,7 +691,7 @@ exports.percentile = [
         "n6_n3": 8.1,
         "aa_epa": 18.4,
         "total_saturated": 35.6,
-        "cis_fatty_acids": 22,
+        "total_monounsaturated": 22,
         "total_omega6": 38,
         "total_omega3": 6.2,
         "total_trans": 1.1
@@ -702,7 +702,7 @@ exports.percentile = [
         "n6_n3": 8.2,
         "aa_epa": 18.8,
         "total_saturated": 35.7,
-        "cis_fatty_acids": 22.1,
+        "total_monounsaturated": 22.1,
         "total_omega6": 38.2,
         "total_omega3": 6.2,
         "total_trans": 1.1
@@ -713,7 +713,7 @@ exports.percentile = [
         "n6_n3": 8.3,
         "aa_epa": 19.2,
         "total_saturated": 35.7,
-        "cis_fatty_acids": 22.1,
+        "total_monounsaturated": 22.1,
         "total_omega6": 38.3,
         "total_omega3": 6.3,
         "total_trans": 1.1
@@ -724,7 +724,7 @@ exports.percentile = [
         "n6_n3": 8.4,
         "aa_epa": 19.6,
         "total_saturated": 35.8,
-        "cis_fatty_acids": 22.2,
+        "total_monounsaturated": 22.2,
         "total_omega6": 38.4,
         "total_omega3": 6.4,
         "total_trans": 1.1
@@ -735,7 +735,7 @@ exports.percentile = [
         "n6_n3": 8.4,
         "aa_epa": 20,
         "total_saturated": 35.8,
-        "cis_fatty_acids": 22.3,
+        "total_monounsaturated": 22.3,
         "total_omega6": 38.5,
         "total_omega3": 6.4,
         "total_trans": 1.1
@@ -746,7 +746,7 @@ exports.percentile = [
         "n6_n3": 8.5,
         "aa_epa": 20.4,
         "total_saturated": 35.9,
-        "cis_fatty_acids": 22.4,
+        "total_monounsaturated": 22.4,
         "total_omega6": 38.6,
         "total_omega3": 6.5,
         "total_trans": 1.1
@@ -757,7 +757,7 @@ exports.percentile = [
         "n6_n3": 8.6,
         "aa_epa": 20.9,
         "total_saturated": 36,
-        "cis_fatty_acids": 22.5,
+        "total_monounsaturated": 22.5,
         "total_omega6": 38.6,
         "total_omega3": 6.6,
         "total_trans": 1.1
@@ -768,7 +768,7 @@ exports.percentile = [
         "n6_n3": 8.7,
         "aa_epa": 21.3,
         "total_saturated": 36,
-        "cis_fatty_acids": 22.6,
+        "total_monounsaturated": 22.6,
         "total_omega6": 38.7,
         "total_omega3": 6.7,
         "total_trans": 1.1
@@ -779,7 +779,7 @@ exports.percentile = [
         "n6_n3": 8.8,
         "aa_epa": 21.8,
         "total_saturated": 36.1,
-        "cis_fatty_acids": 22.7,
+        "total_monounsaturated": 22.7,
         "total_omega6": 38.8,
         "total_omega3": 6.8,
         "total_trans": 1.1
@@ -790,7 +790,7 @@ exports.percentile = [
         "n6_n3": 8.9,
         "aa_epa": 22.3,
         "total_saturated": 36.1,
-        "cis_fatty_acids": 22.8,
+        "total_monounsaturated": 22.8,
         "total_omega6": 38.9,
         "total_omega3": 6.9,
         "total_trans": 1.1
@@ -801,7 +801,7 @@ exports.percentile = [
         "n6_n3": 9,
         "aa_epa": 22.7,
         "total_saturated": 36.2,
-        "cis_fatty_acids": 22.8,
+        "total_monounsaturated": 22.8,
         "total_omega6": 39,
         "total_omega3": 7,
         "total_trans": 1.2
@@ -812,7 +812,7 @@ exports.percentile = [
         "n6_n3": 9.1,
         "aa_epa": 23.2,
         "total_saturated": 36.2,
-        "cis_fatty_acids": 22.9,
+        "total_monounsaturated": 22.9,
         "total_omega6": 39.1,
         "total_omega3": 7.1,
         "total_trans": 1.2
@@ -823,7 +823,7 @@ exports.percentile = [
         "n6_n3": 9.2,
         "aa_epa": 23.8,
         "total_saturated": 36.3,
-        "cis_fatty_acids": 23,
+        "total_monounsaturated": 23,
         "total_omega6": 39.3,
         "total_omega3": 7.2,
         "total_trans": 1.2
@@ -834,7 +834,7 @@ exports.percentile = [
         "n6_n3": 9.2,
         "aa_epa": 24.2,
         "total_saturated": 36.3,
-        "cis_fatty_acids": 23.1,
+        "total_monounsaturated": 23.1,
         "total_omega6": 39.3,
         "total_omega3": 7.3,
         "total_trans": 1.2
@@ -845,7 +845,7 @@ exports.percentile = [
         "n6_n3": 9.4,
         "aa_epa": 24.7,
         "total_saturated": 36.4,
-        "cis_fatty_acids": 23.2,
+        "total_monounsaturated": 23.2,
         "total_omega6": 39.5,
         "total_omega3": 7.4,
         "total_trans": 1.2
@@ -856,7 +856,7 @@ exports.percentile = [
         "n6_n3": 9.5,
         "aa_epa": 25.3,
         "total_saturated": 36.5,
-        "cis_fatty_acids": 23.4,
+        "total_monounsaturated": 23.4,
         "total_omega6": 39.6,
         "total_omega3": 7.5,
         "total_trans": 1.2
@@ -867,7 +867,7 @@ exports.percentile = [
         "n6_n3": 9.6,
         "aa_epa": 26,
         "total_saturated": 36.6,
-        "cis_fatty_acids": 23.5,
+        "total_monounsaturated": 23.5,
         "total_omega6": 39.7,
         "total_omega3": 7.6,
         "total_trans": 1.2
@@ -878,7 +878,7 @@ exports.percentile = [
         "n6_n3": 9.7,
         "aa_epa": 26.7,
         "total_saturated": 36.6,
-        "cis_fatty_acids": 23.6,
+        "total_monounsaturated": 23.6,
         "total_omega6": 39.8,
         "total_omega3": 7.8,
         "total_trans": 1.2
@@ -889,7 +889,7 @@ exports.percentile = [
         "n6_n3": 9.8,
         "aa_epa": 27.3,
         "total_saturated": 36.7,
-        "cis_fatty_acids": 23.7,
+        "total_monounsaturated": 23.7,
         "total_omega6": 39.9,
         "total_omega3": 7.9,
         "total_trans": 1.3
@@ -900,7 +900,7 @@ exports.percentile = [
         "n6_n3": 9.9,
         "aa_epa": 28,
         "total_saturated": 36.8,
-        "cis_fatty_acids": 23.8,
+        "total_monounsaturated": 23.8,
         "total_omega6": 40,
         "total_omega3": 8.1,
         "total_trans": 1.3
@@ -911,7 +911,7 @@ exports.percentile = [
         "n6_n3": 10,
         "aa_epa": 28.6,
         "total_saturated": 36.9,
-        "cis_fatty_acids": 24,
+        "total_monounsaturated": 24,
         "total_omega6": 40.2,
         "total_omega3": 8.2,
         "total_trans": 1.3
@@ -922,7 +922,7 @@ exports.percentile = [
         "n6_n3": 10.1,
         "aa_epa": 29.3,
         "total_saturated": 37,
-        "cis_fatty_acids": 24.1,
+        "total_monounsaturated": 24.1,
         "total_omega6": 40.3,
         "total_omega3": 8.4,
         "total_trans": 1.3
@@ -933,7 +933,7 @@ exports.percentile = [
         "n6_n3": 10.2,
         "aa_epa": 30.1,
         "total_saturated": 37.1,
-        "cis_fatty_acids": 24.2,
+        "total_monounsaturated": 24.2,
         "total_omega6": 40.4,
         "total_omega3": 8.5,
         "total_trans": 1.3
@@ -944,7 +944,7 @@ exports.percentile = [
         "n6_n3": 10.4,
         "aa_epa": 31.2,
         "total_saturated": 37.2,
-        "cis_fatty_acids": 24.4,
+        "total_monounsaturated": 24.4,
         "total_omega6": 40.6,
         "total_omega3": 8.7,
         "total_trans": 1.3
@@ -955,7 +955,7 @@ exports.percentile = [
         "n6_n3": 10.5,
         "aa_epa": 32.1,
         "total_saturated": 37.3,
-        "cis_fatty_acids": 24.5,
+        "total_monounsaturated": 24.5,
         "total_omega6": 40.7,
         "total_omega3": 8.9,
         "total_trans": 1.4
@@ -966,7 +966,7 @@ exports.percentile = [
         "n6_n3": 10.6,
         "aa_epa": 33.1,
         "total_saturated": 37.4,
-        "cis_fatty_acids": 24.7,
+        "total_monounsaturated": 24.7,
         "total_omega6": 40.9,
         "total_omega3": 9.1,
         "total_trans": 1.4
@@ -977,7 +977,7 @@ exports.percentile = [
         "n6_n3": 10.8,
         "aa_epa": 34,
         "total_saturated": 37.5,
-        "cis_fatty_acids": 24.9,
+        "total_monounsaturated": 24.9,
         "total_omega6": 41,
         "total_omega3": 9.3,
         "total_trans": 1.4
@@ -988,7 +988,7 @@ exports.percentile = [
         "n6_n3": 10.9,
         "aa_epa": 35,
         "total_saturated": 37.6,
-        "cis_fatty_acids": 25.1,
+        "total_monounsaturated": 25.1,
         "total_omega6": 41.2,
         "total_omega3": 9.6,
         "total_trans": 1.4
@@ -999,7 +999,7 @@ exports.percentile = [
         "n6_n3": 11.1,
         "aa_epa": 36.3,
         "total_saturated": 37.8,
-        "cis_fatty_acids": 25.5,
+        "total_monounsaturated": 25.5,
         "total_omega6": 41.4,
         "total_omega3": 9.9,
         "total_trans": 1.5
@@ -1010,7 +1010,7 @@ exports.percentile = [
         "n6_n3": 11.3,
         "aa_epa": 37.9,
         "total_saturated": 37.9,
-        "cis_fatty_acids": 25.7,
+        "total_monounsaturated": 25.7,
         "total_omega6": 41.6,
         "total_omega3": 10.2,
         "total_trans": 1.5
@@ -1021,7 +1021,7 @@ exports.percentile = [
         "n6_n3": 11.5,
         "aa_epa": 39.5,
         "total_saturated": 38.1,
-        "cis_fatty_acids": 26,
+        "total_monounsaturated": 26,
         "total_omega6": 41.8,
         "total_omega3": 10.5,
         "total_trans": 1.6
@@ -1032,7 +1032,7 @@ exports.percentile = [
         "n6_n3": 11.7,
         "aa_epa": 41.7,
         "total_saturated": 38.3,
-        "cis_fatty_acids": 26.3,
+        "total_monounsaturated": 26.3,
         "total_omega6": 42,
         "total_omega3": 10.9,
         "total_trans": 1.6
@@ -1043,7 +1043,7 @@ exports.percentile = [
         "n6_n3": 12,
         "aa_epa": 44,
         "total_saturated": 38.5,
-        "cis_fatty_acids": 26.7,
+        "total_monounsaturated": 26.7,
         "total_omega6": 42.3,
         "total_omega3": 11.2,
         "total_trans": 1.7
@@ -1054,7 +1054,7 @@ exports.percentile = [
         "n6_n3": 12.3,
         "aa_epa": 47,
         "total_saturated": 38.8,
-        "cis_fatty_acids": 27.2,
+        "total_monounsaturated": 27.2,
         "total_omega6": 42.5,
         "total_omega3": 11.8,
         "total_trans": 1.7
@@ -1065,7 +1065,7 @@ exports.percentile = [
         "n6_n3": 12.7,
         "aa_epa": 51,
         "total_saturated": 39.1,
-        "cis_fatty_acids": 27.8,
+        "total_monounsaturated": 27.8,
         "total_omega6": 42.9,
         "total_omega3": 12.5,
         "total_trans": 1.9
@@ -1076,7 +1076,7 @@ exports.percentile = [
         "n6_n3": 13.4,
         "aa_epa": 56.5,
         "total_saturated": 39.6,
-        "cis_fatty_acids": 28.7,
+        "total_monounsaturated": 28.7,
         "total_omega6": 43.4,
         "total_omega3": 13.3,
         "total_trans": 2.1
@@ -1087,7 +1087,7 @@ exports.percentile = [
         "n6_n3": 14.3,
         "aa_epa": 65,
         "total_saturated": 40.7,
-        "cis_fatty_acids": 30.1,
+        "total_monounsaturated": 30.1,
         "total_omega6": 44.2,
         "total_omega3": 14.6,
         "total_trans": 2.4
