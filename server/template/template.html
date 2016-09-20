@@ -51,7 +51,7 @@
             </div>
             <div class="row plain-text top30" ng-bind-html="report.omega3_index_detail_text"></div>
         </div>
-        <ng-include src="'views/footer-1.html'"></ng-include>
+        <ng-include ng-repeat="page in [{'page': 1}]" src="'views/footer-1.html'"></ng-include>
     </div>
 
     <!--PAGE 2-->
@@ -81,7 +81,7 @@
 
             <div class="row plain-text top30" ng-bind-html="report.trans_fat_index_detail_text"></div>
         </div>
-        <ng-include src="'views/footer-1.html'"></ng-include>
+        <ng-include ng-repeat="page in [{'page': 2}]" src="'views/footer-1.html'"></ng-include>
     </div>
 
     <!--PAGE 3-->
@@ -321,7 +321,7 @@
                 </table>
             </div>
         </div>
-        <ng-include src="'views/footer-1.html'"></ng-include>
+        <ng-include ng-repeat="page in [{'page': 3}]" src="'views/footer-1.html'"></ng-include>
     </div>
 
     <!--PAGE 4-->
@@ -360,7 +360,7 @@
                 </p>
             </div>
         </div>
-        <ng-include src="'views/footer-1.html'"></ng-include>
+        <ng-include ng-repeat="page in [{'page': 4}]" src="'views/footer-1.html'"></ng-include>
     </div>
 
     <!--PAGE 5-->
@@ -384,7 +384,7 @@
                 </p>
             </div>
         </div>
-        <ng-include src="'views/footer-1.html'"></ng-include>
+        <ng-include ng-repeat="page in [{'page': 5}]" src="'views/footer-1.html'"></ng-include>
     </div>
 
     <!--PAGE 6-->
