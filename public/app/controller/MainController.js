@@ -61,7 +61,7 @@ app.controller('MainController', function ($scope, MainService, toastr, blockUI)
                                     $scope.errorMsg = errorMsg;
                                 }
                                 if (successTasks && successTasks.length > 0) {
-                                    $scope.successMsg = '{0}份报告被生成并且寄出，ZIP文件将被下载以供留档。'.format(successTasks.length);
+                                    $scope.successMsg = '{0}份报告被生成，ZIP文件将被下载以供留档。'.format(successTasks.length);
                                 }
                                 if (response.results.zipPath) {
                                     $scope.downLoadZip(response.results.zipPath);
