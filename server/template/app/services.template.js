@@ -70,9 +70,6 @@ app.service('MainService', function ($http) {
     };
 
     me.transFatDetailText = '\
-        <p>你的反式脂肪酸（Trans Fat）指标在理想范围内，位于低于1%的区间内。建议你保持目前的膳食结构。\
-        </p>\
-        <br>\
         <p>\
         大量研究显示反式脂肪酸的指标<1%与心血管疾病低发病率相关。\
         多数人都在中间区域，指标大于1.65% 的人更容易罹患心血管疾病。</p>\
