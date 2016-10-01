@@ -9,6 +9,7 @@ app.controller('MainController', function ($scope, MainService, toastr, blockUI)
     $scope.fileValid = false;
     $scope.fileData = null;
     $scope.fileSelected = null;
+    $scope.isProfessional = '0';
 
     $scope.$watch('fileSelected', function (newValue, oldValue) {
         $scope.onFileChange(newValue)
@@ -40,10 +41,11 @@ app.controller('MainController', function ($scope, MainService, toastr, blockUI)
         var errorMsg = null,
             errorTasks,
             successTasks,
-            errorData = null;
+            errorData = null,
+            isProfessional = $scope.isProfessional != '0';
         if ($scope.fileValid && $scope.fileData) {
             blockUI.start();
-            MainService.generateReport($scope.fileData)
+            MainService.generateReport($scope.fileData, isProfessional)
                 .then(function (res) {
                         blockUI.stop();
                         var response = res.data;

@@ -26,8 +26,9 @@ var fieldsToTrans = {
 };
 
 exports.upload = function (req, res, next) {
-    var data = req.body;
-    processRawData(data);
+    var data = req.body.profiles,
+        isProfessional = req.body.isProfessional;
+    processRawData(data, isProfessional);
     winston.info(data);
     startProcess(data, res);
 };
@@ -283,7 +284,11 @@ function base64_encode(file) {
     return new Buffer(bitmap).toString('base64');
 }
 
-function processRawData(raw) {
+function processRawData(raw, isProfessional) {
+    _.forEach(raw, function (item) {
+        item.is_professional = isProfessional;
+    });
+
     // transfer necessary percentage strings to float numbers
     _.forEach(raw, function (item) {
         _.forEach(item, function (value, key) {

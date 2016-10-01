@@ -97,8 +97,8 @@ app.service('MainService', function ($http) {
         而10：1的比率则会出现不良后果。\
         </p>\
         <br>\
-        <p>研究表明，维持Omega-6:Omega- 3的较低比例有助于减少许多的慢性\
-        疾病的风险。在健康的饮食结构中，omega-6脂肪酸的含量应大约为omega-3脂肪酸的四倍以内。</p>';
+        <p>研究表明，维持Omega-6：Omega- 3的较低比例有助于减少许多的慢性\
+        疾病的风险。在健康的饮食结构中，Omega-6脂肪酸的含量应大约为Omega-3脂肪酸的四倍以内。</p>';
 
     me.transFatSummaryText = {
         high: '你的反式脂肪酸（Trans Fat）指标远高于目标指数1%。建议你大幅度的减少反式脂肪酸的摄入量。',
