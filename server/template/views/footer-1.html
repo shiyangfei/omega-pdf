@@ -5,6 +5,7 @@
     </div>
     <div class="col-xs-2 nopadding center-align">
         <br>
-        <div>Page: {{page.page}} of 5</div>
+        <div ng-if="report.is_professional">Page: {{page.page}} of 5</div>
+        <div ng-if="!report.is_professional">Page: {{page.page}} of 3</div>
     </div>
 </div>
