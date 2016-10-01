@@ -45,6 +45,15 @@
   .range-desc.omega-3-chart .unit:nth-of-type(3) {
     left: 70%;
   }
+  .range-desc.n6-n3-chart .unit:nth-of-type(1) {
+    left: 10%;
+  }
+  .range-desc.n6-n3-chart .unit:nth-of-type(2) {
+    left: 30%;
+  }
+  .range-desc.n6-n3-chart .unit:nth-of-type(3) {
+    left: 60%;
+  }
   .range-desc.trans-fat-chart .unit:nth-of-type(1) {
     left: 22%;
   }
@@ -118,6 +127,65 @@
   }
   .index-chart.omega-3-chart .unit:nth-of-type(7):after {
     content: "12%";
+  }
+  .index-chart.n6-n3-chart {
+    background: #40AC47;
+    /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #40AC47, #CD862E);
+    /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #40AC47, #CD862E);
+    /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #40AC47, #CD862E);
+    /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #40AC47, #CD862E);
+    /* Standard syntax */
+  }
+  .index-chart.n6-n3-chart .unit {
+    position: absolute;
+    border-left: 1px solid #FFFFFF;
+    height: 14px;
+    width: 10%;
+  }
+  .index-chart.n6-n3-chart .unit:after {
+    position: absolute;
+    bottom: -15px;
+    left: -6px;
+  }
+  .index-chart.n6-n3-chart .unit:nth-of-type(1) {
+    left: 10%;
+  }
+  .index-chart.n6-n3-chart .unit:nth-of-type(1):after {
+    content: "2";
+  }
+  .index-chart.n6-n3-chart .unit:nth-of-type(2) {
+    left: 26%;
+  }
+  .index-chart.n6-n3-chart .unit:nth-of-type(2):after {
+    content: "4";
+  }
+  .index-chart.n6-n3-chart .unit:nth-of-type(4) {
+    left: 42%;
+  }
+  .index-chart.n6-n3-chart .unit:nth-of-type(4):after {
+    content: "6";
+  }
+  .index-chart.n6-n3-chart .unit:nth-of-type(5) {
+    left: 58%;
+  }
+  .index-chart.n6-n3-chart .unit:nth-of-type(5):after {
+    content: "8";
+  }
+  .index-chart.n6-n3-chart .unit:nth-of-type(6) {
+    left: 74%;
+  }
+  .index-chart.n6-n3-chart .unit:nth-of-type(6):after {
+    content: "10";
+  }
+  .index-chart.n6-n3-chart .unit:nth-of-type(7) {
+    left: 90%;
+  }
+  .index-chart.n6-n3-chart .unit:nth-of-type(7):after {
+    content: "12";
   }
   .index-chart.trans-fat-chart {
     background: #40AC47;

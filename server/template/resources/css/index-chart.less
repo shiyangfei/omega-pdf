@@ -54,6 +54,18 @@
       }
     }
 
+    &.n6-n3-chart {
+      .unit:nth-of-type(1) {
+        left: 10%;
+      }
+      .unit:nth-of-type(2) {
+        left: 30%;
+      }
+      .unit:nth-of-type(3) {
+        left: 60%;
+      }
+    }
+
     &.trans-fat-chart {
       .unit:nth-of-type(1) {
         left: 22%;
@@ -128,6 +140,64 @@
         content: "12%";
       }
     }
+
+    &.n6-n3-chart {
+      background: @good; /* For browsers that do not support gradients */
+      background: -webkit-linear-gradient(left, @good, @bad); /* For Safari 5.1 to 6.0 */
+      background: -o-linear-gradient(right, @good, @bad); /* For Opera 11.1 to 12.0 */
+      background: -moz-linear-gradient(right, @good, @bad); /* For Firefox 3.6 to 15 */
+      background: linear-gradient(to right, @good, @bad); /* Standard syntax */
+
+      .unit {
+        position: absolute;
+        border-left: 1px solid @white;
+        height: 14px;
+        width: 10%;
+      }
+
+      .unit:after {
+        position: absolute;
+        bottom: -15px;
+        left: -6px;
+      }
+      .unit:nth-of-type(1) {
+        left: 10%;
+      }
+      .unit:nth-of-type(1):after {
+        content: "2";
+      }
+      .unit:nth-of-type(2) {
+        left: 26%;
+      }
+      .unit:nth-of-type(2):after {
+        content: "4";
+      }
+      .unit:nth-of-type(4) {
+        left: 42%;
+      }
+      .unit:nth-of-type(4):after {
+        content: "6";
+      }
+      .unit:nth-of-type(5) {
+        left: 58%;
+      }
+      .unit:nth-of-type(5):after {
+        content: "8";
+      }
+      .unit:nth-of-type(6) {
+        left: 74%;
+      }
+      .unit:nth-of-type(6):after {
+        content: "10";
+      }
+      .unit:nth-of-type(7) {
+        left: 90%;
+      }
+      .unit:nth-of-type(7):after {
+        content: "12";
+      }
+    }
+
     &.trans-fat-chart {
       background: @good; /* For browsers that do not support gradients */
       background: -webkit-linear-gradient(left, @good, @bad); /* For Safari 5.1 to 6.0 */

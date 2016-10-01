@@ -58,6 +58,36 @@
     <div class="page-container page-break-after">
         <ng-include src="'views/header-1.html'"></ng-include>
         <div class="report-body">
+            <h1 class="blue-title">Omega6：Omega3比例</h1>
+            <div class="row top15">
+                <ng-include src="'views/profile-table.html'" class="col-xs-7"></ng-include>
+                <div class="col-xs-3 nopadding">
+                    <div class="index-label">你的指标</div>
+                    <div>
+                        参考区间*: {{report.n6_n3_ref_range}}
+                    </div>
+                </div>
+                <div class="col-xs-2 nopadding">
+                    <div class="index-circle">{{report.n6_n3}}</div>
+                </div>
+            </div>
+
+            <div class="row top15">
+                <ng-include src="'views/n6-n3-chart.html'"></ng-include>
+                <div class="suggestion-text top30">
+                    {{report.n6_n3_summary_text}}
+                </div>
+            </div>
+
+            <div class="row plain-text top30" ng-bind-html="report.n6_n3_detail_text"></div>
+        </div>
+        <ng-include ng-repeat="page in [{'page': 2}]" src="'views/footer-1.html'"></ng-include>
+    </div>
+
+    <!--PAGE 3-->
+    <div class="page-container page-break-after">
+        <ng-include src="'views/header-1.html'"></ng-include>
+        <div class="report-body">
             <h1 class="blue-title">反式脂肪酸指标报告</h1>
             <div class="row top15">
                 <ng-include src="'views/profile-table.html'" class="col-xs-7"></ng-include>
@@ -81,10 +111,10 @@
 
             <div class="row plain-text top30" ng-bind-html="report.trans_fat_index_detail_text"></div>
         </div>
-        <ng-include ng-repeat="page in [{'page': 2}]" src="'views/footer-1.html'"></ng-include>
+        <ng-include ng-repeat="page in [{'page': 3}]" src="'views/footer-1.html'"></ng-include>
     </div>
 
-    <!--PAGE 3-->
+    <!--PAGE 4-->
     <div class="page-container page-break-after">
         <ng-include src="'views/header-1.html'"></ng-include>
         <div class="report-body">
@@ -321,10 +351,10 @@
                 </table>
             </div>
         </div>
-        <ng-include ng-repeat="page in [{'page': 3}]" src="'views/footer-1.html'"></ng-include>
+        <ng-include ng-repeat="page in [{'page': 4}]" src="'views/footer-1.html'"></ng-include>
     </div>
 
-    <!--PAGE 4-->
+    <!--PAGE 5-->
     <div class="page-container page-break-after">
         <ng-include src="'views/header-1.html'"></ng-include>
         <div class="report-body">
@@ -360,10 +390,10 @@
                 </p>
             </div>
         </div>
-        <ng-include ng-repeat="page in [{'page': 4}]" src="'views/footer-1.html'"></ng-include>
+        <ng-include ng-repeat="page in [{'page': 5}]" src="'views/footer-1.html'"></ng-include>
     </div>
 
-    <!--PAGE 5-->
+    <!--PAGE 6-->
     <div class="page-container page-break-after">
         <ng-include src="'views/header-1.html'"></ng-include>
         <div class="report-body">
@@ -384,10 +414,10 @@
                 </p>
             </div>
         </div>
-        <ng-include ng-repeat="page in [{'page': 5}]" src="'views/footer-1.html'"></ng-include>
+        <ng-include ng-repeat="page in [{'page': 6}]" src="'views/footer-1.html'"></ng-include>
     </div>
 
-    <!--PAGE 6-->
+    <!--PAGE 7-->
     <div class="page-container page-break-after">
         <ng-include src="'views/header-1.html'"></ng-include>
         <div class="report-body">
@@ -663,7 +693,7 @@
         </div>
     </div>
 
-    <!--PAGE 7-->
+    <!--PAGE 8-->
     <div class="page-container page-break-after">
         <ng-include src="'views/header-1.html'"></ng-include>
         <div class="report-body">

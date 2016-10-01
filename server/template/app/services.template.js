@@ -18,8 +18,26 @@ app.service('MainService', function ($http) {
         }
     };
 
-    me.getOmega3IndexDetailText = function (indexText) {
+    me.getOmega3IndexDetailText = function () {
         return me.omega3DetailText;
+    };
+
+
+    me.getN6N3SummaryText = function (indexText) {
+        var index = parseFloat(indexText);
+        if (index < 4) {
+            return me.n6n3SummaryText.low;
+        }
+        if (index <= 6 && index >= 4) {
+            return me.n6n3SummaryText.medium;
+        }
+        if (index > 6) {
+            return me.n6n3SummaryText.high;
+        }
+    };
+
+    me.getN6N3DetailText = function () {
+        return me.n6n3DetailText;
     };
 
     me.getTransFatIndexSummaryText = function (indexText) {
@@ -35,7 +53,7 @@ app.service('MainService', function ($http) {
         }
     };
 
-    me.getTransFatIndexDetailText = function (indexText) {
+    me.getTransFatIndexDetailText = function () {
         return me.transFatDetailText;
     };
 
@@ -62,6 +80,25 @@ app.service('MainService', function ($http) {
         <p>\
         为了保持你的Omega-3指标保持在合适的区间，你应该每六个月就复查一次。\
         </p>';
+
+    me.n6n3SummaryText = {
+        low: '你的Omega6：Omega3比例处在理想范围内，位于低于4：1的区间。 建议你保持目前的Omega-3摄入量。',
+        medium: '你的Omega6：Omega3比例在中度范围内位于4：1 - 6：1的区间。建议你增加Omega-3脂肪酸的摄入量。',
+        high: '你的Omega6：Omega3比例远高于目标范围所处的4：1的区间。 建议你增加Omega-3脂肪酸的摄入量。'
+    };
+
+    me.n6n3DetailText = '\
+        <p>人类在长期的进化过程中体内和饮食中的Omega-6和Omega-3之间的比例一直维持在大约1：1的水平，\
+        而近两个世纪由于工业化导致人类食谱的巨大变化，使得人类体内该比例严重失衡。过量的Omega-6和非常\
+        高的Omega-6：Omega-3的比例，被发现是促进许多疾病的发病机制。这些疾病包括心血管疾病、癌症、\
+        炎症和自身免疫性疾病，而降低Omega-6/Omega-3比率则可以发挥抑制疾病的效果。对心血管疾病，该比\
+        例低于4：1会使得总猝死率减少70％；低于2.5：1的比率则会降低大肠癌患者的直肠癌细胞的增殖；对乳腺\
+        癌也有类似的结果；低于2-3：1的比例会抑制类风湿性关节炎患者的炎症；低于5：1会对哮喘患者的有益；\
+        而10：1的比率则会出现不良后果。\
+        </p>\
+        <br>\
+        <p>研究表明，维持Omega-6:Omega- 3的较低比例有助于减少许多的慢性\
+        疾病的风险。在健康的饮食结构中，omega-6脂肪酸的含量应大约为omega-3脂肪酸的四倍以内。</p>';
 
     me.transFatSummaryText = {
         high: '你的反式脂肪酸（Trans Fat）指标远高于目标指数1%。建议你大幅度的减少反式脂肪酸的摄入量。',
