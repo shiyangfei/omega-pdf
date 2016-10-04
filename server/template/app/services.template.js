@@ -72,7 +72,7 @@ app.service('MainService', function ($http) {
         </p>\
         <br>\
         <p>\
-        为了保持你的Omega-3指标保持在合适的区间，你应该每六个月就复查一次。\
+        为了让你的Omega-3指标保持在合适的区间，你应该每六个月就复查一次。\
         </p>';
 
     me.n6n3SummaryText = {
