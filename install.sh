@@ -1,5 +1,5 @@
 cd public
-bower i
+bower i && npm i
 cd ../server
 npm i
 cd ./template
