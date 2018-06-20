@@ -4,13 +4,14 @@
 var app = angular.module('omega');
 app.service('MainService', function ($http) {
     var me = this;
-    me.generateReport = function (data, isProfessional) {
+    me.generateReport = function (data, isProfessional, language) {
         return $http({
             url: 'api/upload',
             method: 'POST',
             data: {
                 profiles: data,
-                isProfessional: isProfessional
+                isProfessional: isProfessional,
+                language: language
             }
         });
     };

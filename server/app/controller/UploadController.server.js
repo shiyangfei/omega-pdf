@@ -27,13 +27,15 @@ var fieldsToTrans = {
 
 exports.upload = function (req, res, next) {
     var data = req.body.profiles,
-        isProfessional = req.body.isProfessional;
+        isProfessional = req.body.isProfessional,
+        language = req.body.language;
+    language = language || 'cn';
     processRawData(data, isProfessional);
     winston.info(data);
-    startProcess(data, res);
+    startProcess(data, res, language);
 };
 
-function startProcess(data, res) {
+function startProcess(data, res, language) {
     var page,
         phInstance = null,
         dirName = './file/{0}'.format(new Date().getTime()),
@@ -58,7 +60,11 @@ function startProcess(data, res) {
         })
         .then(function () {
             // open template file
-            return page.open('template/template.html');
+            if (language === 'cn') {
+                return page.open('template/template_.html');
+            } else {
+                return page.open('template/template_en.html');
+            }
         })
         .then(function () {
             return createPDFs(data, dirName, page)
@@ -284,9 +290,10 @@ function base64_encode(file) {
     return new Buffer(bitmap).toString('base64');
 }
 
-function processRawData(raw, isProfessional) {
+function processRawData(raw, isProfessional, language) {
     _.forEach(raw, function (item) {
         item.is_professional = isProfessional;
+        item.language = language;
     });
 
     // transfer necessary percentage strings to float numbers

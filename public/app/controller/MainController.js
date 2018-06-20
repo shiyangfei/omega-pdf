@@ -10,6 +10,7 @@ app.controller('MainController', function ($scope, MainService, toastr, blockUI)
     $scope.fileData = null;
     $scope.fileSelected = null;
     $scope.isProfessional = '0';
+    $scope.language = 'cn';
 
     $scope.$watch('fileSelected', function (newValue, oldValue) {
         $scope.onFileChange(newValue)
@@ -42,10 +43,11 @@ app.controller('MainController', function ($scope, MainService, toastr, blockUI)
             errorTasks,
             successTasks,
             errorData = null,
-            isProfessional = $scope.isProfessional != '0';
+            isProfessional = $scope.isProfessional != '0',
+            language = $scope.language;
         if ($scope.fileValid && $scope.fileData) {
             blockUI.start();
-            MainService.generateReport($scope.fileData, isProfessional)
+            MainService.generateReport($scope.fileData, isProfessional, language)
                 .then(function (res) {
                         blockUI.stop();
                         var response = res.data;
